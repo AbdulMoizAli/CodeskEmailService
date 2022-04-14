@@ -1,9 +1,11 @@
+require('dotenv').config();
 const express = require('express');
 const { transporter, getMailOptions } = require('./config/transport');
 const {
     getEmailTemplate,
     emailTemplateMapping,
 } = require('./config/emailTemplate');
+const { authenticateAudience } = require('./config/auth');
 
 const app = express();
 
@@ -13,7 +15,7 @@ app.get('/', (req, res) => {
     res.send('<center><h1>Codesk RESTful Email Service</h1></center>');
 });
 
-app.post('/api/sendEmail', async (req, res) => {
+app.post('/api/sendEmail', authenticateAudience, async (req, res) => {
     try {
         const templatePath = emailTemplateMapping[req.body.type].templatePath;
 
