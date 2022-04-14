@@ -1,0 +1,16 @@
+{
+    "name": "codeskemailservice",
+    "version": "1.0.0",
+    "description": "RESTful email service for codesk",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "dev": "nodemon server.js"
+    },
+    "author": "Abdul Moiz <moizali_@outlook.com> (https://github.com/AbdulMoizAli)",
+    "license": "MIT",
+    "dependencies": {
+        "dotenv": "^16.0.0",
+        "express": "^4.17.3"
+    }
+}
