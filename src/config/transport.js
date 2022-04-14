@@ -13,12 +13,12 @@ const transporter = createTransport({
     },
 });
 
-function getMailOptions() {
+function getMailOptions(recipientEmail, subject, content) {
     return {
         from: process.env.AUTH_USER,
-        to: 'moizali_@outlook.com',
-        subject: 'Email Service Test',
-        text: 'Hello World',
+        to: recipientEmail,
+        subject: subject,
+        html: content,
     };
 }
 
